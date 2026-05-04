@@ -1,0 +1,180 @@
+{
+  "users": [
+    {
+      "id": "u1",
+      "name": "محمود",
+      "role": "Senior Frontend Developer",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Mahmoud"
+    },
+    {
+      "id": "u2",
+      "name": "سارة",
+      "role": "UI/UX Designer",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Sara"
+    },
+    {
+      "id": "u3",
+      "name": "أحمد",
+      "role": "Backend Engineer",
+      "avatar": "https://api.dicebear.com/7.x/avataaars/svg?seed=Ahmed"
+    }
+  ],
+  "projects": [
+    {
+      "id": "p1",
+      "name": "Linear Clone Project",
+      "description": "بناء نسخة احترافية من تطبيق Linear باستخدام Next.js",
+      "status": "active",
+      "priority": "urgent",
+      "ownerId": "u1",
+      "createdAt": "2026-04-01"
+    },
+    {
+      "id": "p2",
+      "name": "E-commerce Dashboard",
+      "description": "لوحة تحكم لإدارة المبيعات والمنتجات",
+      "status": "planned",
+      "priority": "medium",
+      "ownerId": "u2",
+      "createdAt": "2026-04-15"
+    },
+    {
+      "id": "p3",
+      "name": "Mobile Banking App",
+      "description": "تصميم واجهات تطبيق بنكي جديد",
+      "status": "active",
+      "priority": "high",
+      "ownerId": "u3",
+      "createdAt": "2026-04-20"
+    },
+    {
+      "id": "a938",
+      "name": "New Project For Test",
+      "description": "This Project Has Been Deleted",
+      "status": "active",
+      "priority": "urgent",
+      "ownerId": "u1",
+      "createdAt": "2026-04-30"
+    },
+    {
+      "id": "7ab6",
+      "name": "Test Project 2",
+      "description": "fkjfoiajfiojdkasl,fkmpoaskd",
+      "status": "active",
+      "priority": "medium",
+      "ownerId": "u1",
+      "createdAt": "2026-04-30"
+    },
+    {
+      "id": "463b",
+      "name": "Test Project 3",
+      "description": "This is A New Project New",
+      "status": "active",
+      "priority": "medium",
+      "ownerId": "u1",
+      "createdAt": "2026-04-30"
+    }
+  ],
+  "tasks": [
+    {
+      "id": "t1",
+      "projectId": "p1",
+      "assignedTo": "u1",
+      "title": "Setup TanStack Query",
+      "status": "done",
+      "priority": "high"
+    },
+    {
+      "id": "t2",
+      "projectId": "p1",
+      "assignedTo": "u1",
+      "title": "Implement Hydration Boundary",
+      "status": "in_progress",
+      "priority": "high"
+    },
+    {
+      "id": "t3",
+      "projectId": "p1",
+      "assignedTo": "u2",
+      "title": "Design Task Card UI",
+      "status": "done",
+      "priority": "medium"
+    },
+    {
+      "id": "t4",
+      "projectId": "p2",
+      "assignedTo": "u3",
+      "title": "Setup API Routes",
+      "status": "todo",
+      "priority": "high"
+    },
+    {
+      "id": "t5",
+      "projectId": "p2",
+      "assignedTo": "u2",
+      "title": "Create Figma Mockups",
+      "status": "done",
+      "priority": "urgent"
+    },
+    {
+      "id": "t6",
+      "projectId": "p3",
+      "assignedTo": "u1",
+      "title": "Fix Auth Bugs",
+      "status": "todo",
+      "priority": "high"
+    },
+    {
+      "id": "t7",
+      "projectId": "p3",
+      "assignedTo": "u3",
+      "title": "Optimize Database Queries",
+      "status": "done",
+      "priority": "medium"
+    },
+    {
+      "id": "t8",
+      "projectId": "p1",
+      "assignedTo": "u1",
+      "title": "Zustand State Logic",
+      "status": "todo",
+      "priority": "low"
+    },
+    {
+      "id": "152d",
+      "title": "Test Taske ",
+      "status": "pending",
+      "assignedTo": "",
+      "done": false,
+      "priority": "low",
+      "projectId": "p1"
+    },
+    {
+      "id": "2546",
+      "title": "One Taskee It Have",
+      "status": "pending",
+      "assignedTo": "",
+      "done": false,
+      "priority": "high",
+      "projectId": null
+    },
+    {
+      "id": "2d5e",
+      "title": "Create Landeinng page",
+      "status": "pending",
+      "assignedTo": "",
+      "done": false,
+      "priority": "low",
+      "projectId": null
+    },
+    {
+      "id": "e18d",
+      "title": "Task one",
+      "status": "pending",
+      "assignedTo": "",
+      "done": false,
+      "priority": "high",
+      "projectId": "p2"
+    }
+  ]
+}
