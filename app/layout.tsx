@@ -36,7 +36,7 @@ export default function RootLayout({
           <NavBar />
         <QueryProvider>
           <div className="container py-6">
-            <div className="flex items-start gap-6   max-h-[20wh]">
+            <div className="flex items-start gap-6   ">
               <SideBae />
               <main className="min-w-0  flex-1">{children}</main>
             </div>
