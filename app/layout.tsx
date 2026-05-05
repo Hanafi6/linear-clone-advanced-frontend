@@ -38,7 +38,7 @@ export default function RootLayout({
           <div className="container py-6">
             <div className="flex items-start gap-6">
               <SideBae />
-              <main className="min-w-0  flex-1 bg-red-500">{children}</main>
+              <main className="min-w-0  flex-1">{children}</main>
             </div>
           </div>
         </QueryProvider>
