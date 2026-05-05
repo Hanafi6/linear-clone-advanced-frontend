@@ -1,26 +1,150 @@
 @import "tailwindcss";
 
+/* Define runtime CSS variables explicitly (so var(--*) works everywhere)تفضل يا صاحبي، الكود المحدث بالكامل. ركزت جداً على الـ `body` عشان أزود لك الـ `background-image` وأعمل لك حركة "الشخبطة" اللي طلبتها بدون ما أستخدم صور خارجية، وده عشان يطلع الشكل فني (Doodle/Drawn Line Art) ومتفاعل مع الـ Gradients.
+
+شوف التعديلات دي، وأهم حاجة الـ **Body** و **الشخبطة الزخرفية** اللي تحت:
+
+```css
+@import "tailwindcss";
+
+/* Define runtime CSS variables explicitly (so var(--*) works everywhere) */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Core palette */
+  --color-brand: #3b82f6;
+  --color-brand-2: #22c55e;
+  --color-success: #22c55e;
+  --color-info: #3b82f6;
+  --color-warning: #f59e0b;
+  --color-danger: #ef4444;
+  --color-bg: #0b1020;
+  --color-surface: rgba(255, 255, 255, 0.06);
+  --color-surface-2: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-text: rgba(255, 255, 255, 0.92);
+  --color-muted: rgba(255, 255, 255, 0.66);
+
+  /* Accents */
+  --color-brand-dark: #06003b;
+  --color-ring: rgba(59, 130, 246, 0.5);
+
+  /* Radius */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 22px;
+
+  /* Shadows */
+  --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 18px 60px rgba(59, 130, 246, 0.22);
+
+  /* Layout */
+  --container-max: 1100px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+html[data-theme="dark"] {
+  --color-bg: #070a14;
+  --color-surface: rgba(255, 255, 255, 0.06);
+  --color-surface-2: rgba(255, 255, 255, 0.1);
+  --color-border: rgba(255, 255, 255, 0.14);
+  --color-text: rgba(255, 255, 255, 0.92);
+
+  --color-test: blue;
+  --color-muted: rgba(255, 255, 255, 0.66);
+  color-scheme: dark;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html[data-theme="light"] {
+  --color-bg: #f7f8ff;
+  --color-surface: rgba(2, 6, 23, 0.06);
+  --color-surface-2: rgba(2, 6, 23, 0.1);
+  --color-border: rgba(2, 6, 23, 0.14);
+  --color-text: rgba(2, 6, 23, 0.92);
+  --color-test: green;
+  --color-muted: rgba(2, 6, 23, 0.66);
+  color-scheme: light;
+}
+
+html,
+body {
+  height: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  position: relative; /* عشان الـ shakbata تكون جواه */
+  background: 
+    /* 1. زاوية زرقاء قوية عند Projects */
+    radial-gradient(1200px 600px at 15% -5%, rgba(59, 130, 246, 0.22), transparent 50%),
+    /* 2. زاوية خضراء عند الترس العلوي */
+    radial-gradient(900px 500px at 85% 10%, rgba(34, 197, 94, 0.15), transparent 50%),
+    /* 3. توهج أزرق آخر تحت البطاقات */
+    radial-gradient(1000px 500px at 30% 60%, rgba(59, 130, 246, 0.18), transparent 55%),
+    /* 4. اللون الخلفي الأساسي المتدرج */
+    linear-gradient(180deg, var(--color-bg), color-mix(in oklab, var(--color-bg) 85%, black 15%));
+  
+  color: var(--color-text);
+  overflow: hidden; /* عشان لو الـ shakbata كبرت */
+}
+
+/* --- إضافة الشخبطة والزخارف الخطية (Doodle Pattern) --- */
+body::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  
+  /* زخرفة خطية هندسية - نمط متكرر لنقاط ودوائر صغيرة جداً */
+  background-image: 
+    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px),
+    radial-gradient(circle at 5px 5px, rgba(255, 255, 255, 0.03) 2px, transparent 2px),
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  
+  background-size: 30px 30px, 45px 45px, 15px 15px; /* مقاسات مختلفة للعمق */
+  background-repeat: repeat;
+  z-index: -1; /* خلف المحتوى */
+}
+
+/* زخرفة عشوائية فنية أكبر (الرسمة الحلوة اللي طلبتها) */
+body::after {
+  content: "";
+  position: absolute;
+  bottom: -50px;
+  right: -50px;
+  width: 500px;
+  height: 500px;
+  border: 1px solid rgba(59, 130, 246, 0.1); /* خط أزرق خافت */
+  border-radius: 50%;
+  box-shadow: 
+    0 0 100px rgba(34, 197, 94, 0.08),
+    inset 0 0 100px rgba(59, 130, 246, 0.08);
+  
+  /* إضافة خطوط متقطعة فنية */
+  background: 
+    linear-gradient(45deg, transparent 48%, rgba(255,255,255,0.02) 50%, transparent 52%),
+    linear-gradient(-45deg, transparent 48%, rgba(255,255,255,0.02) 50%, transparent 52%);
+  background-size: 20px 20px;
+  
+  z-index: -1;
+  pointer-events: none; /* عشان ما يمنعش الكليك على البطاقات */
+}
+/* --- نهاية الشخبطة --- */
+
+.container {
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 16px;
+  position: relative; /* للمحتوى */
+  z-index: 1; /* فوق الشخبطة */
+}
+
+@layer utilities {
+  /* إخفاء السكرول بار لجميع المتصفحات */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+  }
 }
